@@ -8,6 +8,7 @@ fun main() {
     println("a = $a")
     val b = 20
     println("the large number is " + largeNumber(a, b))
+    println(checkNumber(a))
 }
 
 //fun largeNumber(a: Int, b: Int): Int {
@@ -31,3 +32,49 @@ fun largeNumber(a: Int, b: Int) = max(a, b)
 
 //只有一句直接省略
 fun largeNumIf(a: Int, b: Int) = if (a > b) a else b
+
+/**
+ * 使用when语句
+ */
+//1 基本使用
+//fun getScore(name: String): Int {
+//    return when (name) {
+//        "long" -> 99
+//        "chao" -> 89
+//        "ll" -> 79
+//        else -> 0
+//    }
+//}
+
+fun getScore(name: String) = when (name) {
+    "long" -> 99
+    "chao" -> 89
+    "ll" -> 79
+    else -> 0
+}
+
+//2 使用is判断类型，进行类型匹配
+fun checkNumber(num: Number) {
+    when (num) {
+        is Int -> println("number is Int")
+        is Double -> println("number is Double")
+        else -> println("number not support")
+    }
+}
+
+//不带参数的when语句
+fun getScoreWithoutParam(name: String) = when {
+    name == "long" -> 99//使用==而不是equals去判断对象是否相等
+    name == "chao" -> 89
+    name == "ll" -> 79
+    else -> 0
+}
+
+//使用函数表达式作为判断语句
+fun getScoreWithFun(name: String) = when {
+    name.startsWith("long") -> 100
+    name == "long" -> 99//使用==而不是equals去判断对象是否相等
+    name == "chao" -> 89
+    name == "ll" -> 79
+    else -> 0
+}
