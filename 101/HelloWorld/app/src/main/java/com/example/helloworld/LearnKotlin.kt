@@ -56,10 +56,22 @@ fun main() {
     Thread { println("thread is running!") }.start()
 }
 
-fun doStudy(study: Study) {
-    study.readBooks()
-    study.doHomeWork()
-    study.defaultFun()
+fun doStudy(study: Study?) {
+    study?.let {//使用let函数，此函数会传入调用变量，而?表示只有当study不为null的时候才会调用
+        it.readBooks()
+        it.doHomeWork()
+        it.defaultFun()
+    }
+
+    //使用let函数写法不受多线程影响（全局变量）
+    var stu = Student("long", 20)
+    fun doStudyLet() {
+        stu?.let {
+            it.readBooks()
+            it.doHomeWork()
+            it.defaultFun()
+        }
+    }
 }
 
 //fun largeNumber(a: Int, b: Int): Int {
