@@ -2,6 +2,7 @@ package com.example.helloworld
 
 import com.example.helloworld.kobj.Student
 import com.example.helloworld.kobj.Study
+import com.example.helloworld.kobj.dataclass.CellPhone
 import kotlin.math.max
 
 fun main() {
@@ -11,8 +12,15 @@ fun main() {
 //    val b = 20
 //    println("the large number is " + largeNumber(a, b))
 //    println(checkNumber(a))
-    val student = Student("long", 20)
-    doStudy(student)
+//    val student = Student("long", 20)
+//    doStudy(student)
+    val cellPhone1 = CellPhone("long", 1870795.0)
+    val cellPhone2 = CellPhone("long", 1870795.0)
+    println(cellPhone1.toString())
+    println(cellPhone2.toString())
+    println(cellPhone1.brand + cellPhone1.price)
+    println("equals:" + (cellPhone1 == cellPhone2))
+    println("=== :" + (cellPhone1 === cellPhone2))
 
 }
 
