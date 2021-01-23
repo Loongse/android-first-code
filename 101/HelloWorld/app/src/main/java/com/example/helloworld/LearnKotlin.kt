@@ -1,14 +1,25 @@
 package com.example.helloworld
 
+import com.example.helloworld.kobj.Student
+import com.example.helloworld.kobj.Study
 import kotlin.math.max
 
 fun main() {
 //    print("Hello Kotlin!")
-    val a = 10
-    println("a = $a")
-    val b = 20
-    println("the large number is " + largeNumber(a, b))
-    println(checkNumber(a))
+//    val a = 10
+//    println("a = $a")
+//    val b = 20
+//    println("the large number is " + largeNumber(a, b))
+//    println(checkNumber(a))
+    val student = Student("long", 20)
+    doStudy(student)
+
+}
+
+fun doStudy(study: Study) {
+    study.readBooks()
+    study.doHomeWork()
+    study.defaultFun()
 }
 
 //fun largeNumber(a: Int, b: Int): Int {
