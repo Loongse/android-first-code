@@ -3,6 +3,7 @@ package com.example.helloworld
 import com.example.helloworld.kobj.Student
 import com.example.helloworld.kobj.Study
 import com.example.helloworld.kobj.dataclass.CellPhone
+import com.example.helloworld.kobj.single.Singleton
 import kotlin.math.max
 
 fun main() {
@@ -21,7 +22,7 @@ fun main() {
     println(cellPhone1.brand + cellPhone1.price)
     println("equals:" + (cellPhone1 == cellPhone2))
     println("=== :" + (cellPhone1 === cellPhone2))
-
+    Singleton.getInstance()
 }
 
 fun doStudy(study: Study) {
