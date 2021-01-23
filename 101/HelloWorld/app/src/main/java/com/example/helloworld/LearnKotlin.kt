@@ -56,6 +56,25 @@ fun main() {
     Thread { println("thread is running!") }.start()
 }
 
+/**
+ * 函数使用默认参数
+ */
+fun defaultTest() {
+    //默认的参数可以不传入
+    defaultPar(19)
+    defaultPar(19, "long")
+    //前面参数默认下，要传入后续参数可以声明传入的是哪个参数
+    defaultParRev(name = "longchao")
+}
+
+fun defaultPar(age: Int, name: String = "longchao") {
+    println("name: $name,age $age")
+}
+
+fun defaultParRev(age: Int = 19, name: String = "longchao") {
+    println("name: $name,age $age")
+}
+
 fun doStudy(study: Study?) {
     study?.let {//使用let函数，此函数会传入调用变量，而?表示只有当study不为null的时候才会调用
         it.readBooks()
