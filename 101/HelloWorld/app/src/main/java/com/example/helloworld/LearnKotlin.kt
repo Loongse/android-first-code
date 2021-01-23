@@ -15,14 +15,37 @@ fun main() {
 //    println(checkNumber(a))
 //    val student = Student("long", 20)
 //    doStudy(student)
-    val cellPhone1 = CellPhone("long", 1870795.0)
-    val cellPhone2 = CellPhone("long", 1870795.0)
-    println(cellPhone1.toString())
-    println(cellPhone2.toString())
-    println(cellPhone1.brand + cellPhone1.price)
-    println("equals:" + (cellPhone1 == cellPhone2))
-    println("=== :" + (cellPhone1 === cellPhone2))
-    Singleton.getInstance()
+//    val cellPhone1 = CellPhone("long", 1870795.0)
+//    val cellPhone2 = CellPhone("long", 1870795.0)
+//    println(cellPhone1.toString())
+//    println(cellPhone2.toString())
+//    println(cellPhone1.brand + cellPhone1.price)
+//    println("equals:" + (cellPhone1 == cellPhone2))
+//    println("=== :" + (cellPhone1 === cellPhone2))
+//    Singleton.getInstance()
+    //kotlin集合的使用
+    //1 使用add进行添加
+    val list = ArrayList<String>()
+    list.add("long")
+    list.add("chao")
+    list.add("loong")
+    list.add("loongse")
+    println(list.javaClass)//class java.util.ArrayList
+    //2 使用listOf创建一个不变的集合（只读，不能增加、修改删除操作）,目的是遵循kotlin强调的不变性原则
+    val listof = listOf("long", "chao", "loong", "loongse")
+    println(listof.javaClass)//class java.util.Arrays$ArrayList
+    //3 创建一个可变的集合
+    val mutableList = mutableListOf("long", "chao", "loong", "loongse")
+    println(mutableList.javaClass)//class java.util.ArrayList
+    //集合的遍历
+    for (l in list) {
+        println(l)
+    }
+    val upperList = list.filter { it.length < 5 }.map { it.toUpperCase() }//函数式编程：Java也有此函数实现
+    for (s in upperList) {
+        println(s)
+    }
+
 }
 
 fun doStudy(study: Study) {
