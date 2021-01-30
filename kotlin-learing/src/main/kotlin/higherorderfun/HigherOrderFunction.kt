@@ -53,3 +53,13 @@ fun StringBuilder.build(block: StringBuilder.() -> Unit): StringBuilder {
     block()
     return this
 }
+//noline:可以对单个函数参数进行非内联，crossinline:用于解决内联函数内部使用lambda表达式
+inline fun runRunnable(crossinline block :()->Unit){
+    val runnable = Runnable{
+        block()
+    }
+    runnable.run()
+}
+inline fun runRunnable(block: () -> Unit,noinline block1: () -> Unit){
+
+}
