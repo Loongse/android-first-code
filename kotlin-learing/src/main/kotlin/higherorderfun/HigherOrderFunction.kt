@@ -10,7 +10,7 @@ fun main() {
 //函数引用方式： ::
 //    使用lambda表达式来使用高阶函数
     println(num1AndNum2(1, 2) { n1, n2 ->
-        n1 + n2
+        n1 + n2//(num1AndNum2(n1+n2))
     })
     println(num1AndNum2(1, 2) { n1, n2 ->
         n1 - n2
@@ -26,10 +26,17 @@ fun main() {
     }
     println(result)
 }
-
+//高阶函数：kotlin内部有一个Function接口，里面有一个待实现的invoke函数，而高阶函数调用了这个invoke函数，
+//并把对应的参数传递进去，因此每次使用lambda表达式，会建立一个新的匿名类实例，造成内存开销，为了解决此问题，kotlin提供了
+//内联函数inline，只需要在高阶函数前面添加一个inline关键字即可，
 //一个简单的高阶函数，接受两个Int类型参数以及一个函数类型参数
-fun num1AndNum2(num1: Int, num2: Int, operation: (Int, Int) -> Int): Int {
-    return operation(num1, num2)
+//内联函数具体原理：
+/**
+ * 1、将lambda中的代码替换到函数类型参数调用的地方
+ * 2、内联函数中的全部代码替换到函数调用的地方
+ */
+inline fun num1AndNum2(num1: Int, num2: Int, operation: (Int, Int) -> Int): Int {
+    return operation(num1, num2)//->return n1+n2
 }
 
 //定义俩个用于加减的函数
